@@ -1,0 +1,84 @@
+<html>
+<head>
+
+<script language = "JavaScript">
+
+
+var number2 = 0;
+var myList = [ "Anne", "Bob", "Cathy", "Doug" ];
+function tester()
+{
+/*    var answer = 0; declare a new variable called answer
+    answer = confirm("Hello World"); 
+    answer = prompt("What is your name?")
+    alert("Welcome to my site, "+answer);
+    
+    number = number - 1;
+    if( number == 0 )
+    {
+        alert("Blastoff");
+        number = 11;
+    }
+    else
+    {
+        alert(number);
+    }
+*/
+    if( number2 == 3 )
+    {
+        alert(myList[number2]);
+        number2 = -1;
+    }
+    else
+    {
+        alert(myList[number2]);
+    }
+    number2= number2 + 1
+}
+
+var number1 = 11;
+function tester1()
+{
+   var answer = 0; //declare a new variable called answer
+    //answer = confirm("Hello World"); 
+    //answer = prompt("What is your name?")
+    //alert("Welcome to my site, "+answer);
+    
+    number1 = number1 - 1;
+    if( number1 == 0 )
+    {
+        alert("Blastoff");
+        number1 = 11;
+    }
+    else
+    {
+        alert(number1);
+    }
+}
+    
+function tester3()
+{
+   var answer = 0; //declare a new variable called answer
+    //answer = confirm("Hello World"); 
+    answer = prompt("What is your name?")
+    alert("Welcome to my site, "+answer);
+}
+</script>
+    
+</head>
+<body>
+<center>
+<h1>JavaScript Tester</h1>
+<br/>
+<br/>
+<input type="button" value="Blastoff Test" onClick="tester1()">
+<input type="button" value="Your Name Test" onClick="tester3()">
+<input type="button" value="List Test" onClick="tester()">
+<br/><br/>
+
+    Back to home page <a href="index.html">Home</a> <br/>
+    To my hero page <a href="Page2.html">Hero</a>
+</center>
+</body>
+
+</html>
