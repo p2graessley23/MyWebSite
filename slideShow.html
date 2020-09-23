@@ -8,7 +8,7 @@ var number = 0;
 function startShow()
     {
         document.getElementById("picFrame").src = pickList[number];
-        picFrame.width = 500;
+        picFrame.width = 450;
         number = number + 1;
         if(number == 5)
         {
@@ -21,10 +21,15 @@ function startShow()
 </head>
 
 <body>
-<center><img id="picFrame" src="images/Slide0.jpg" width="500"></center><br/>
+   <center> <h1>My Slide Show</h1></center>
+<center><img id="picFrame" src="images/Slide0.jpg" width="450"></center><br/>
 <center><input type="button" value="Click Me" onClick="startShow()"></center>
-
-
+<br/><br/>
+<center>
+    <a href="index.html">Home</a> <br/>
+    <a href="Page2.html">My Hero</a> <br/>
+    <a href="jstester.html">JsTester</a><br/>
+</center>
 </body>
 
 </html>
