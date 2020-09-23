@@ -1,0 +1,30 @@
+<html>
+<head>
+
+<script language = "JavaScript">
+
+var pickList = ["images/Slide1.jpg", "images/Slide2.jpg", "images/Slide3.jpg", "images/Slide4.jpg", "images/Slide5.jpg"]
+var number = 0;
+function startShow()
+    {
+        document.getElementById("picFrame").src = pickList[number];
+        picFrame.width = 500;
+        number = number + 1;
+        if(number == 5)
+        {
+            number = 0;
+        }
+    }
+
+
+</script>
+</head>
+
+<body>
+<center><img id="picFrame" src="images/Slide0.jpg" width="500"></center><br/>
+<center><input type="button" value="Click Me" onClick="startShow()"></center>
+
+
+</body>
+
+</html>
