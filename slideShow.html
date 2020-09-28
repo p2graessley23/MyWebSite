@@ -4,10 +4,18 @@
 <script language = "JavaScript">
 
 var pickList = ["images/Slide1.jpg", "images/Slide2.jpg", "images/Slide3.jpg", "images/Slide4.jpg", "images/Slide5.jpg"]
+var clipList = ["sounds/bear.mp3", "sounds/wolf.mp3", "sounds/woodpecker.mp3", "sounds/coyote.mp3", "sounds/squirrel.mp3"]
 var number = 0;
 function startShow()
     {
-        document.getElementById("picFrame").src = pickList[number];
+        var pic = document.getElementById("picFrame"); 
+        var clip = document.getElementById("myAudio");
+        
+        pic.src = pickList[number];
+        clip.src = clipList[number];
+        
+        clip.play();
+        
         picFrame.width = 450;
         number = number + 1;
         if(number == 5)
@@ -23,6 +31,7 @@ function startShow()
 <body>
    <center> <h1>My Slide Show</h1></center>
 <center><img id="picFrame" src="images/Slide0.jpg" width="450"></center><br/>
+<audio id="myAudio"></audio>
 <center><input type="button" value="Click Me" onClick="startShow()"></center>
 <br/><br/>
 <center>
