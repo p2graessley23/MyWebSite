@@ -1,0 +1,63 @@
+<html>
+<head>
+<script languague = "JavaScript">
+var answers = ["Yes","No","Unlikely","Unsure","Fairly Likely", "Impossible","Absolutely","Not A Chance","Ask Again Later","Perhaps"]
+function random()
+{
+    var rand = Math.random();
+    rand = rand * answers.length;
+    rand = Math.floor(rand);
+    var qlength = question.value.length
+    var clip = document.getElementById("Sound")
+
+    if (qlength == 0)
+    {
+        solution.value = "Please Ask A Question First!";
+    }
+    else
+    {
+        solution.value = answers[rand];
+        if(rand == 6)
+        { 
+            clip.src = "sounds/Congrats.mp3"
+        }
+        else if(rand== 5)
+        {
+            clip.src = "sounds/toBad.mp3"
+        }
+        else
+        {
+            clip.src = "sounds/magic.mp3"
+        }
+        clip.play()
+    }
+}
+
+function reset()
+    {
+     document.getElementById("question").value = ""
+     document.getElementById("solution").value = ""
+
+    }
+</script>
+</head>
+<body background="images/randbackground.jpg" link="purple" vlink="purple" >
+ <font color ="gold">
+<center>
+<h1>My Magic 8-Ball</h1>
+<p>Ask a question that can be answered in roughly a yes or no in the first box. Then click submit.
+    
+</p>
+<br/>
+
+<br/>
+<center><img src="images/crystalball.png" width="200"></center>
+<audio id="Sound"></audio>
+<input type = “text” size="80" placeHolder="What do you wish to know?" id="question" onfocusin="reset()"/><br/><br/>
+<input type="button" value="Submit" onClick="random()"/><br/><br/>
+<input type = “text” size="20" id="solution" readonly= true /> <br/><br/><br/><br/><br/><br/><br/><br/>
+    
+    <p> <a href="index.html">Click Here To Return To Home</a> </p>
+</center>
+<body/>
+<html/>
