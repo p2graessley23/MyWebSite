@@ -1,0 +1,74 @@
+<html>
+<head> 
+<script language="JavaScript">
+
+var partsOfSpeech = ["Adjective ","Name ","Adjective ","Adjective ","Adjective","Noun","Verb Ending in ing","Adjective","Adjective","Adjective Ending in ly"];
+var answers = new Array(partsOfSpeech.length);
+var story = ["It was a "," day and "," wanted to get some food. They decided to get some "," ice cream. They ran over to the "," ice cream shop they knew. When they arrived, the line was ","! He saw his "," in line. They were ",". While waiting, they decided to ",". Slowly the line got smaller and it was finally his turn. He ordered a "," ice cream with "," of toppings. Then ", " made their way home." ];
+var count = 0;
+
+function prompt()
+{
+	// if this is the start, display the textbox and hide the story. 
+    document.getElementById("userEnter").style.visibility = "visible";
+    document.getElementById("story").style.visibility = "hidden";
+	// then display the first element of partsOfSpeech in the textbox. 
+    document.getElementById("response").value = ""
+    document.getElementById("response").placeholder = partsOfSpeech[count]
+    if(count == partsOfSpeech.length)
+    {
+        count = 0
+        displayStory();
+    }
+}
+
+
+function getWords()
+{
+    
+    var wordbox = document.getElementById("response");
+    answers[count] = wordbox.value;
+    alert(answers);
+    count = count + 1;
+    prompt()
+}
+
+function displayStory()
+{
+	var answer = "";
+	var i;
+	
+	// loop to stitch elements of story with elements of answers. 
+	
+	for ( i = 0; i< answers.length; i++)
+	{
+	answer = answer + story[i]
+    answer = answer + partsOfSpeech[i] 
+	}
+	// if there's one more element in story than answers, then add the last element of answers
+    answer = answer + story[11]
+	// Make the story div visible, and the userEnter div hidden.		
+    document.getElementById("userEnter").style.visibility = "hidden"
+    document.getElementById("story").style.visibility = "visible"
+	// return the variable answer.
+    //return answer
+    document.getElementById("story").innerHTML = answer;
+}
+
+</script>
+</head>
+<body>
+<center> 
+<h1>My MadLib!</h1>
+<input id="daButton" type="button" value="start" onClick="prompt()"/>
+</center>
+<div id="userEnter" style="position:absolute; left:200; top: 100; visibility:hidden;">
+<input type = "text" id="response" value="" placeholder="Hi" onfocusout="getWords()"/></p>
+</div>
+
+<div id="story" style="position:absolute; overflow:scroll; top:300; left:200; width:400; height: 200; visibility:hidden">
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+<div>
+
+</body>
+</html>
