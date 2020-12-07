@@ -13,7 +13,6 @@ function prompt()
     document.getElementById("userEnter").style.visibility = "visible";
     document.getElementById("story").style.visibility = "hidden";
 	// then display the first element of partsOfSpeech in the textbox. 
-    document.getElementById("response").value = ""
     document.getElementById("response").placeholder = partsOfSpeech[count]
     if(count == partsOfSpeech.length)
     {
@@ -28,8 +27,8 @@ function getWords()
     
     var wordbox = document.getElementById("response");
     answers[count] = wordbox.value;
-    alert(answers);
     count = count + 1;
+    document.getElementById("response").value = ""
     prompt()
 }
 
