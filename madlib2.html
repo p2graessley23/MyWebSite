@@ -17,7 +17,7 @@ function prompt()
     if(count == partsOfSpeech.length)
     {
         count = 0
-        displayStory();
+        document.getElementById("story").innerHTML = displayStory();
     }
 }
 
@@ -46,13 +46,16 @@ function displayStory()
 	}
 	// if there's one more element in story than answers, then add the last element of answers
     answer = answer + story[11]
+
 	// Make the story div visible, and the userEnter div hidden.		
     document.getElementById("userEnter").style.visibility = "hidden"
     document.getElementById("story").style.visibility = "visible"
 	// return the variable answer.
     //return answer
-    document.getElementById("story").innerHTML = answer;
+    return answer
 }
+    document.getElementById("story").innerHTML = displayStory();
+
 
 </script>
 </head>
