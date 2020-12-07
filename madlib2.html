@@ -2,7 +2,7 @@
 <head> 
 <script language="JavaScript">
 
-var partsOfSpeech = ["Adjective ","Name ","Adjective ","Adjective ","Adjective","Noun","Verb Ending in ing","Adjective","Adjective","Adjective Ending in ly"];
+var partsOfSpeech = ["Adjective ","Name ","Adjective ","Adjective ","Adjective","Noun","Verb Ending in ing","Verb","Adjective","Adjective","Adjective Ending in ly"];
 var answers = new Array(partsOfSpeech.length);
 var story = ["It was a "," day and "," wanted to get some food. They decided to get some "," ice cream. They ran over to the "," ice cream shop they knew. When they arrived, the line was ","! He saw his "," in line. They were ",". While waiting, they decided to ",". Slowly the line got smaller and it was finally his turn. He ordered a "," ice cream with "," of toppings. Then ", " made their way home." ];
 var count = 0;
@@ -14,11 +14,7 @@ function prompt()
     document.getElementById("story").style.visibility = "hidden";
 	// then display the first element of partsOfSpeech in the textbox. 
     document.getElementById("response").placeholder = partsOfSpeech[count]
-    if(count == partsOfSpeech.length)
-    {
-        count = 0
-        document.getElementById("story").innerHTML = displayStory();
-    }
+    
 }
 
 
@@ -29,7 +25,15 @@ function getWords()
     answers[count] = wordbox.value;
     count = count + 1;
     document.getElementById("response").value = ""
-    prompt()
+    if(count < partsOfSpeech.length)
+    {
+        prompt()
+    }
+    else
+    {
+        count = 0
+        document.getElementById("story").innerHTML = displayStory();
+    }
 }
 
 function displayStory()
