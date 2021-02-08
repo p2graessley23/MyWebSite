@@ -1,0 +1,133 @@
+<html> 
+<head> 
+<script language="JavaScript">
+
+/*************** Algorithm ******************
+1. Make lists
+2. set a variable counting in display question
+3. Display the question that the counter wants
+4. Set box value euqal to counter variable
+5. Check beforehand to see if counter exceeds the length of the list, if so either stop or repeat from index 0
+6. Set a variable to equal the user's answer
+7. Check if input is equal to the answer by calling index number, if so return correct, else return not correct
+8 If correct add to score, if not do not add
+9. Alert correct or incorrect
+
+*/
+
+var User = ""
+var questions = ["How many Pokemon types are there?", "How many Eveelutions are there?", "Who is the first Pokemon in the Pokedex","Who was the first Pokemone created?", "Who is the only Pokemon who can devolve?", "Who was the original mascot?", "What is Pokemon short for?","Who is the tallest fire type starter Pokemon?","Who was orignially going to be named Firefox?","Who was orignially going to be named Slowmo?"]; // Create an array of 10ish questions.
+
+var answers = ["18", "7", "BULBASAUR","RHYDON", "SLOWBRO","CLEFAIRY","POCKET MONSTERS","CHARMANDER","VULPIX", "SLOWPOKE" ] ;// Create an array of the cooresponding answers to the questions above.
+
+var index = -1;
+
+var score = 0
+var rand = Math.random();
+
+
+// Create code in displayQuestion that will display the contents of the questions array, one 
+// element at a time. After the last element is displayed, the program should display the first
+// element again.
+function displayQuestion()
+{
+    if(answers.length == 0)
+    {
+        questions = ["How many Pokemon types are there?", "How many Eveelutions are there?", "Who is the first Pokemon in the Pokedex","Who was the first Pokemone created?", "Who is the only Pokemon who can devolve?", "Who was the original mascot?", "What is Pokemon short for?","Who is the tallest fire type starter Pokemon?","Who was orignially going to be named Firefox?","Who was orignially going to be named Slowmo?"];
+        answers = ["18", "7", "BULBASAUR","RHYDON", "SLOWBRO","CLEFAIRY","POCKET MONSTERS","CHARMANDER","VULPIX", "SLOWPOKE" ];
+        score = 0
+        document.getElementById("button").value = "Next Question"
+    }
+    document.getElementById("answer").readOnly = false
+    document.getElementById("answer").value = ""
+    rand = Math.random();
+    rand = rand * questions.length;
+    rand = Math.floor(rand);
+    index = rand
+    var question = document.getElementById("question")
+    question.value = questions[index]
+    document.getElementById("scores").value = score
+    
+}
+
+
+// This function will first acquire the user's answer (from the textbox with the ID "answer". Then this function will pass that to the checkAnswer function (note: that there is a parameter.) The checkAnswer will return a true or a false. If that function returns true, then the score variable will increase by 1, and an alert should pop up saying "Correct" or something positive. If the checkAnswer function comes back false, then score doesn't increase but an alert should announce "incorect." or something similar. 
+function updateScore()
+{
+	User = document.getElementById("answer").value
+    var UserAn = User.toUpperCase()
+    var RoW = checkAnswer(UserAn)
+    if(document.getElementById("answer").readOnly == false)
+    {
+        if(User != "")
+        {
+            if(RoW == true)
+            {
+                document.getElementById("answer").value = "Correct"
+                score = score + 1
+                document.getElementById("answer").readOnly = true
+                questions.splice(index,1)
+                answers.splice(index,1)
+            }
+            else if(RoW == false)
+            {
+                var wrong = "Incorrect The Answer is: "
+                document.getElementById("answer").value = wrong + answers[index]
+                document.getElementById("answer").readOnly = true
+                questions.splice(index,1)
+                answers.splice(index,1)
+            }
+        }
+    }
+    document.getElementById("scores").value = score
+     if(answers.length == 0)
+    {
+        document.getElementById("button").value = "Play Again?"
+    }
+}
+
+// This function takes a parameter which will be the users answer. If what the user has submitted the correct answer, this method should return true. Otherwise it should return false. 
+function checkAnswer(ans)
+{
+    if(ans == answers[index])
+    {
+        return true
+    }
+    else
+    {
+        return false
+    }
+}
+
+
+
+</script>
+</head>
+<body onload= "displayQuestion()" > 
+<center>
+<h1>My Quiz</h1>
+<a href="index.html">Click Here To Return To My Home Page</a> 
+
+<br/><br/>
+<table border = 3>
+	<tr>
+		<td>  	<input id="question" type="text" size="70" readonly = true/>	</td>
+	</tr>
+	<tr height = "12"><td></td>
+	</tr>
+	<tr>
+		<td>	<input id="answer" type="text" size="70" onfocusout="updateScore()"/> </td>
+	</tr>
+    <tr height = "12"><td></td>
+	</tr>
+    <tr>
+		<td>	<input id="scores" type="text" size="70" readonly = true/> </td>
+	</tr>
+</table>
+<br/><br/>
+<input id="button" type="button" value="Next Question" onclick="displayQuestion()"/>
+</center>
+
+
+</body>
+</html>
